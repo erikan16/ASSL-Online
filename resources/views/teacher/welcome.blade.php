@@ -33,7 +33,7 @@
                 <div class="icon">
                     <i class="fa fa-users "></i>
                 </div>
-                <a href="students.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -45,7 +45,7 @@
                 <div class="icon">
                     <i class="ion ion-chatbubbles"></i>
                 </div>
-                <a href="communication.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ url('posts/') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -57,7 +57,7 @@
                 <div class="icon">
                     <i class="ion ion-calendar"></i>
                 </div>
-                <a href="calendar.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -75,23 +75,22 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-            <section class="content-header">
-                <h1><small>Upload</small> <br>Tutorials and References</h1>
-            </section>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <a href="#" class="btn btn-app"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <a href="#" class="btn btn-app"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <a href="#" class="btn btn-app"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <a href="#" class="btn btn-app"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-                </div>
+        <section class="content-header">
+            <h1><small>Upload</small> <br>Tutorials and References</h1>
+        </section>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a href="#" class="btn btn-app"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a href="#" class="btn btn-app"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a href="#" class="btn btn-app"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a href="#" class="btn btn-app"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

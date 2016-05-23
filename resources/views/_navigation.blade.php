@@ -10,23 +10,29 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-user user-image fa-2x"></i>
-                        <span class="hidden-xs">Heather Kelly</span>
+                        <span class="hidden-xs">
+                             @if (Auth::check())
+                                {{ Auth::user()->name }}
+                                @endif
+                                </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <i class="fa fa-user img-circle fa-5x"></i>
                             <p>
-                                Heather Kelly - 5th Grade Teacher
+                                @if (Auth::check())
+                                {{ Auth::user()->name }} - 5th Grade Teacher
+                                @endif
                                 <small>Member since March 2016</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/about" class="btn btn btn-info btn-flat">My Profile</a>
+                                <a href="#" class="btn btn btn-info btn-flat">My Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="login.html" class="btn btn-warning btn-flat">Sign out</a>
+                                <a href="{{ url('/logout') }}" class="btn btn-warning btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

@@ -13,12 +13,16 @@
         <div class="col-md-4">
             <div class="well">
                 <dl class="dl-horizontal">
-                    <dt>Created On:</dt>
-                    <dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+                    <label>URL:</label>
+                    <a href="{{ url('parent/'.$post->slug) }}">{{ url($post->slug) }}</a>
                 </dl>
                 <dl class="dl-horizontal">
-                    <dt>Updated On:</dt>
-                    <dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
+                    <label>Created On:</label>
+                    {{ date('M j, Y h:ia', strtotime($post->created_at)) }}
+                </dl>
+                <dl class="dl-horizontal">
+                    <label>Updated On:</label>
+                    {{ date('M j, Y h:ia', strtotime($post->updated_at)) }}
                 </dl>
                 <hr>
                 <div class="row">
@@ -29,6 +33,11 @@
                         {!! Form::open(['route' => ['posts.destroy', $post->post_id], 'method' => 'DELETE']) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-block']) !!}
                         {!! Form::close() !!}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        {!! Html::linkRoute('posts.index', 'All Posts', [], ['class' => 'btn btn-info btn-block btn-h1-spacing']) !!}
                     </div>
                 </div>
             </div>

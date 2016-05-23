@@ -136,6 +136,6 @@ class AssignmentController extends Controller
 
         Session::flash('success', 'This assignment was successfully deleted!');
 
-        return redirect()->route('assignment.index');
+        return redirect()->route('assignments.index');
     }
 }

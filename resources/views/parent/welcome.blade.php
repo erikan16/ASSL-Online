@@ -24,7 +24,7 @@
         <section class="content">
             <!-- Small boxes -->
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-4">
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>Teacher</h3>
@@ -33,10 +33,23 @@
                         <div class="icon">
                             <i class="ion ion-chatbubbles"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{ url('parent/teacher_communication') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-lg-4 col-md-4">
+                    <div class="small-box bg-orange">
+                        <div class="inner">
+                            <h3>Class Room</h3>
+                            <p>Communication</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-chatbubbles"></i>
+                        </div>
+                        <a href="{{ url('parent/class_room') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4">
                     <div class="small-box bg-aqua">
                         <div class="inner">
                             <h3>School</h3>
@@ -45,46 +58,37 @@
                         <div class="icon">
                             <i class="ion ion-university"></i>
                         </div>
-                        <div class="regular-box-footer">
-                            <section class="news">
-                                <h4>This is Generic Info!</h4>
-                                <h5>Posted on: 5/4/2016</h5>
-                                <hr>
-                                <p>Here we will put School News and other Generic Information</p>
-                                <button class="btn btn-primary"> Read More</button>
-                            </section>
-                        </div>
+                        <a href="{{ url('parent/school_news') }}" class="small-box-footer">Read More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
+            <section class="content-header">
+                <h1><small>Upload</small> <br>Tutorials and References</h1>
+            </section>
+            <br>
 
-        <section class="content-header">
-            <h1><small>Upload</small> <br>Tutorials and References</h1>
-        </section>
-        <br>
-
-        <section class="content">
-            <div class="row">
-                <div class="col-md-11 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="#" class="btn btn-app"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="btn btn-app"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="btn btn-app"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="#" class="btn btn-app"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="#" class="btn btn-app"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="#" class="btn btn-app"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="btn btn-app"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="btn btn-app"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
     </div>
 

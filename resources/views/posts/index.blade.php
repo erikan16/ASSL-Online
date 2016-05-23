@@ -12,7 +12,7 @@
     <section class="content-header">
         <h1>All Posts</h1>
         <ol class="breadcrumb">
-            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{ url('teacher/welcome') }}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active"> Posts</li>
         </ol>
         <div class="row">
