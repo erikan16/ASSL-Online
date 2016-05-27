@@ -21,19 +21,21 @@
                             <i class="fa fa-user img-circle fa-5x"></i>
                             <p>
                                 @if (Auth::check())
-                                {{ Auth::user()->name }} - 5th Grade Teacher
+                                {{ Auth::user()->name }}
                                 @endif
-                                <small>Member since March 2016</small>
+                                    @if (Auth::check())
+                                        {{ Auth::user()->name }}
+                                        @if (Auth::user()->userType == '1')
+                                            <small>You are signed in as a Parent</small>
+                                        @else
+                                            <small>You are signed in as a Teacher</small>
+                                        @endif
+                                    @endif
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn btn-info btn-flat">My Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="{{ url('/logout') }}" class="btn btn-warning btn-flat">Sign out</a>
-                            </div>
+                            <a href="{{ url('/logout') }}" class="btn btn-warning btn-block ">Sign out</a>
                         </li>
                     </ul>
                 </li>

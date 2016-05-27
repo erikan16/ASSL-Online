@@ -2,6 +2,7 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,7 @@ trait RegistersUsers
      */
     public function getRegister()
     {
+        $stuff = 'cow';
         return $this->showRegistrationForm();
     }
 
@@ -29,8 +31,21 @@ trait RegistersUsers
         if (property_exists($this, 'registerView')) {
             return view($this->registerView);
         }
+        $teachers = User::where(function($query) {
+            $query->where('userType', '=', '0');
+        })->get();
 
-        return view('auth.register');
+        $teacherList = array();
+        foreach ($teachers as $teacher) {
+            /** @var User $teacher */
+            $teacherId = $teacher['id'];
+            $teacherName = $teacher['name'];
+            $teacherList[] = array(
+                'id' => $teacherId,
+                'name' => $teacherName
+            );
+        }
+        return view('auth.register', array('teachers' => $teacherList));
     }
 
     /**

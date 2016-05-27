@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests;
 use App\Assignment;
+use Illuminate\Support\Facades\Auth;
 
 class AssignmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +22,8 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments = Assignment::all();
+        $user = Auth::user()->id;
+        $assignments = Assignment::where('user', '=', $user)->get();
         return view('assignments.index')->with('assignment', $assignments);
     }
 
@@ -44,7 +50,8 @@ class AssignmentController extends Controller
             'subject' => 'required|max:255',
             'book' => 'required|max:255',
             'page' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'slug' => 'required|alpha_dash|min:5|max:255'
         ));
 
         // stores the received data and stores it into the database
@@ -56,6 +63,9 @@ class AssignmentController extends Controller
         $assignment->book = $request->book;
         $assignment->page = $request->page;
         $assignment->body = $request->body;
+        $assignment->slug = $request->slug;
+        $user = Auth::user()->id;
+        $assignment->user = $user;
 
         $assignment->save();
 
@@ -113,6 +123,9 @@ class AssignmentController extends Controller
         $assignment->book = $request->input('book');
         $assignment->page = $request->input('page');
         $assignment->body = $request->input('body');
+        $assignment->slug = $request->input('slug');
+        $user = Auth::user()->id;
+        $assignment->user = $user;
 
         $assignment->save();
 

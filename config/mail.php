@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'support@laracasts.com', 'name' => 'Laracasts Support'],
+    'from' => ['address' => 'support@brainlinked.com', 'name' => 'Brainlinked Support'],
 
     /*
     |--------------------------------------------------------------------------

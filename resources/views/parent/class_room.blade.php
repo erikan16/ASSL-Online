@@ -23,7 +23,7 @@
                 <div class="col-md-7">
                     <h3 class="featurette-heading">{{ $post->title }}</h3>
                     <p> {{ substr($post->body, 0, 200) }}{{ strlen($post->body) > 200 ? "..." : " "}}</p>
-                    <a href="{{ url('parent/'.$post->slug) }}" class="btn btn-primary">Read More</a>
+                    <a href="{{ url('parent/post/'.$post->slug) }}" class="btn btn-primary">Read More</a>
                 </div>
 
             </div>

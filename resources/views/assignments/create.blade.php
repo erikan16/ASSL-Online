@@ -31,10 +31,13 @@
                             {{ Form::text('page', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
                         </div>
                     </div>
-                    {{ Form::label('body', 'Body:') }}
+                    {{ Form::label('slug', 'Slug:') }}
+                    {{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '255')) }}
+
+                {{ Form::label('body', 'Body:') }}
                     {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '')) }}
 
-                    {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;')) }}
+                    {{ Form::submit('Create Assignment', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;')) }}
                 {!! Form::close() !!}
             </div>
         </div>
