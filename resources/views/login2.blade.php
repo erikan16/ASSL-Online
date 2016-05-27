@@ -21,19 +21,12 @@
 <div class="img-overlay"></div>
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><img src="../../images/login_logo_white.png"> </a>
+        <a href="#"><img src="../images/login_logo_white.png"> </a>
     </div>
-    <div class="login-box-body">
-        <p class="login-box-msg">What kind of user are you?</p>
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <a class="btn btn-primary" href="/teacher/welcome" role="button">Teacher</a>
-                <a class="btn btn-primary" href="/parent/welcome" role="button">Parent</a>
-            </div>
-        </div>
-    </div>
-</div>
 
+    @yield('container')
+
+</div>
 <!-- jQuery 2.1.4 -->
 <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->

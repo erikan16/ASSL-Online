@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 
 use Session;
 use App\Http\Requests;
-use App\Post;
+use App\Links;
 use Illuminate\Support\Facades\Auth;
 
-
-class TeacherPostController extends Controller
+class TutorialsController extends Controller
 {
     public function __construct()
     {
@@ -24,8 +23,8 @@ class TeacherPostController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $posts = Post::where('user', '=', $user)->get();
-        return view('posts.index')->with('post', $posts);
+        $links = Links::where('user', '=', $user)->get();
+        return view('tutorials.index')->with('links', $links);
     }
 
     /**
@@ -35,7 +34,7 @@ class TeacherPostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('tutorials.create');
     }
 
     /**
@@ -49,27 +48,27 @@ class TeacherPostController extends Controller
         // validates the input fields within the form
         $this->validate($request, array(
             'title' => 'required|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255',
-            'body' => 'required'
+            'links' => 'required',
+            'slug' => 'required|alpha_dash|min:5|max:255'
         ));
 
         // stores the received data and stores it into the database
 
-        // sets up a variable called post from the Post Model
-        $post = new Post;
+        // sets up a variable called link from the Links Model
+        $link = new Links;
 
-        $post->title = $request->title;
-        $post->slug = $request->slug;
-        $post->body = $request->body;
+        $link->title = $request->title;
+        $link->links = $request->links;
+        $link->slug = $request->slug;
         $user = Auth::user()->id;
-        $post->user = $user;
+        $link->user = $user;
 
-        $post->save();
+        $link->save();
 
         Session::flash('success', 'The blog post was successfully saved!');
 //        $request->session()->flash('success', 'The blog post was successfully save!');
 
-        return redirect()->route('posts.show', $post->post_id);
+        return redirect()->route('tutorials.show', $link->id);
     }
 
     /**
@@ -80,8 +79,8 @@ class TeacherPostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        $link = Links::find($id);
+        return view('tutorials.show')->with('link', $link);
     }
 
     /**
@@ -93,8 +92,9 @@ class TeacherPostController extends Controller
     public function edit($id)
     {
         //find the specific post id and edit only that one
-        $post = Post::find($id);
-        return view('posts.edit')->with('post', $post);
+        $link = Links::find($id);
+
+        return view('tutorials.edit')->with('link', $link);
     }
 
     /**
@@ -109,23 +109,22 @@ class TeacherPostController extends Controller
         // validates the input fields within the form
         $this->validate($request, array(
             'title' => 'required|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255',
-            'body' => 'required'
+            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'links' => 'required'
         ));
 
-        $post = Post::find($id);
+        $link = Links::find($id);
 
-        $post->title = $request->input('title');
-        $post->slug = $request->input('slug');
-        $post->body = $request->input('body');
+        $link->title = $request->input('title');
+        $link->slug = $request->input('slug');
+        $link->links = $request->input('links');
 
-
-        $post->save();
+        $link->save();
 
         Session::flash('success', 'This post was successfully updated!');
 
         //redirect
-        return redirect()->route('posts.show', $post->post_id);
+        return redirect()->route('tutorials.show', $link->id);
     }
 
     /**
@@ -136,12 +135,12 @@ class TeacherPostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $links = Links::find($id);
 
-        $post->delete();
+        $links->delete();
 
         Session::flash('success', 'This post was successfully deleted!');
 
-        return redirect()->route('posts.index');
+        return redirect()->route('tutorials.index');
     }
 }

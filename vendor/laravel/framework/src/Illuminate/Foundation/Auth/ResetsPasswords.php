@@ -144,7 +144,7 @@ trait ResetsPasswords
      */
     public function getReset(Request $request, $token = null)
     {
-        return $this->showResetForm($request, $token);
+        return $this->ResetFormshow($request, $token);
     }
 
     /**

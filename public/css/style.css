@@ -16,6 +16,8 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+
 /* Layout */
 .wrapper {
     min-height: 100%;
@@ -85,7 +87,7 @@ body {
 }
 .content-wrapper,
 .right-side {
-    min-height: 100%;
+    min-height: 40%;
     background-color: #ecf0f5;
     z-index: 800;
 }
@@ -3171,10 +3173,13 @@ table.text-center th {
     text-align: center;
     margin-bottom: 25px;
     font-weight: 300;
+    background : url(../images/login_logo_white.png) no-repeat 0 0;
 }
 .login-logo a,
 .register-logo a {
     color: #444;
+    display : block;
+    text-indent : -9999px;
 }
 .login-page,
 .register-page {

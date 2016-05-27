@@ -2,45 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignment;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\Links;
 
 class ParentController extends Controller
 {
+
     public function getPosts()
     {
-        $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+        $currentUserTeacher = Auth::user()->teacher_link;
+        $posts = Post::where('user', '=', $currentUserTeacher)->orderBy('created_at', 'desc')->limit(4)->get();
+
         return view('parent/class_room')->with('posts', $posts);
     }
     public function getPost($slug)
     {
         $post = Post::where('slug', '=', $slug)->first();
-        return view('parent.single')->with('post', $post);
+        return view('parent.class_single')->with('post', $post);
     }
 
     public function getCommunications()
     {
-        return view('parent/teacher_communication');
-    }
-    public function getCommunication()
-    {
-        return view('parent/teacher_communication');
-    }
+        $currentUserTeacher = Auth::user()->teacher_link;
+        $assignments = Assignment::where('user', '=', $currentUserTeacher)->orderBy('created_at', 'desc')->limit(4)->get();
 
-    public function getNews()
-    {
-        return view('parent/school_news');
+        return view('parent/teacher_communication')->with('assignments', $assignments);
     }
-    public function getSingleNew()
+    public function getCommunication($slug)
     {
-        return view('parent/school_news');
+        $assignment = Assignment::where('slug', '=', $slug)->first();
+        return view('parent.assignment_single')->with('assignment', $assignment);
     }
 
     public function getTutorials()
     {
-        return view('parent/tutorial');
-    }
-    public function getTutorial()
-    {
+        $currentUserTeacher = Auth::user()->teacher_link;
+        $tutorials = Links::where('user', '=', $currentUserTeacher)->get();
 
+        return view('parent/tutorial')->with('tutorials', $tutorials);
+    }
+    public function getTutorial($slug)
+    {
+        $tutorial = Links::where('slug', '=', $slug)->first();
+        return view('tutorial.tutorial_single')->with('tutorial', $tutorial);
     }
 }

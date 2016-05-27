@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -19,21 +20,15 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-//        return view('home');
-    }
     public function getIndex()
     {
-        return view('login');
-    }
-    public function getParent()
-    {
-        return view('parent/welcome');
-    }
+        $user =  Auth::user()->userType;
 
-    public function getTeacher()
-    {
-        return view('teacher/welcome');
+        if ($user == 'teacher') {
+            return view('teacher/welcome');
+        } else {
+            return view('parent/welcome');
+        }
+
     }
 }

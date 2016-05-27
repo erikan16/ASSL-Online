@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+//use App\Profiles;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/';
 
     /**
@@ -51,7 +53,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6|confirmed'
         ]);
     }
 
@@ -67,6 +69,8 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'userType' => ($data['userType'] == 'teacher') ? false : true,
+            'teacher_link' => ($data['userType'] == 'parent') ? $data['teacher'] : null
         ]);
     }
 }
